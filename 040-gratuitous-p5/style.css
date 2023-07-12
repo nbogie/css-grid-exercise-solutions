@@ -1,0 +1,61 @@
+body {
+    margin: 0 auto;
+    max-width: 1000px;
+    height: 100vh;
+
+    display: grid;
+    /*     not the main grid - just used to center our main gri */
+    place-items: center;
+}
+
+.mainGrid {
+    width: calc(max(500px, 60%));
+
+    display: grid;
+    grid-template-areas:
+        "a . . ."
+        "a . b b"
+        ". . . .";
+    gap: 8px;
+    /* ensure consistent width, independent of differing content */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    border: 10px solid white;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cell {
+    font-size: 5rem;
+    background-color: skyblue;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    user-select: none;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+.featureBlock {
+    grid-area: b;
+    display: grid;
+    place-items: center;
+    color: orange;
+}
+
+.verticalBlock {
+    grid-area: a;
+    color: white;
+    background: orange;
+    display: grid;
+    place-items: center;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+/* Want a smaller grid?  Change the font-size of .cell and h1, or change the font-size at the top level (html) responsive to window dimensions. */
