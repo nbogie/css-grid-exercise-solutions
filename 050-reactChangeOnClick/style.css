@@ -1,0 +1,68 @@
+body {
+  margin: 0 auto;
+  max-width: 1000px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainGrid {
+  display: grid;
+  /* React will set this on render. */
+  /* grid-template-areas:
+      "a . . ."
+      "a . b b"
+      ". . . ."; */
+  /* ensure consistent width, independent of differing content */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 8px;
+
+  border: 10px solid white;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+  width: calc(max(500px, 60%));
+  user-select: none; /* clickable without accidental selection */
+  /* only if no border */
+  /*     overflow: hidden;  */
+}
+
+.cell {
+  font-size: 5rem;
+  background-color: skyblue;
+  aspect-ratio: 1;
+
+  /* center the cell content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+.featureBlock {
+  grid-area: b;
+  color: orange;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.verticalBlock {
+  grid-area: a;
+  color: white;
+  background: orange;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}

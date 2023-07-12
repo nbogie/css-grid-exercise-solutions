@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS Grid Layout extended exercise - React</title>
+        <!-- React app in a single page with no build step. Not suitable for production.  -->
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            /** A component which lays out cells in a grid and can change its layout on click .  (This component is NOT designed to be reusable.) */
+            function EmojiGrid() {
+                const [chosenLayout, setChosenLayout] = React.useState(
+                    pickRandomLayout()
+                );
+
+                function handleClick() {
+                    const layoutStr = pickRandomLayout();
+                    setChosenLayout(layoutStr);
+                }
+
+                return (
+                    <div
+                        className="mainGrid"
+                        onClick={handleClick}
+                        style={{ gridTemplateAreas: chosenLayout }}
+                    >
+                        <div className="cell">🙈</div>
+                        <div className="cell">🦄</div>
+                        <div className="cell">🎸</div>
+                        <div className="cell">🥷🏽</div>
+                        <div className="cell">🥭</div>
+                        <div className="cell">🐉</div>
+                        <div className="cell">🐯</div>
+                        <div className="cell">🛼</div>
+                        <div className="featureBlock">
+                            <h1>Feature</h1>
+                        </div>
+                        <div className="verticalBlock">
+                            <h1>Vertical</h1>
+                        </div>
+                    </div>
+                );
+            }
+
+            /** Return a layout chosen at random from a list of possibles.  The returned layout is suitable for use as the `grid-template-areas` style property of the grid element. */
+            function pickRandomLayout() {
+                return pick(possibleLayouts);
+            }
+
+            /** Pick an element at random from the given array */
+            function pick(arr) {
+                return arr[Math.floor(Math.random() * arr.length)];
+            }
+
+            /** All the possible grid layouts we want to pick from. */
+            //Be careful of the sytax here, if editing.  This is an array of strings, each of which contains three key lines each wrapped in quotes.
+            const possibleLayouts = [
+                `
+"a . . ."
+"a . b b"
+". . . ."
+`,
+                `
+". . . a" 
+". . . a" 
+". . b b"
+`,
+                `
+". b b ." 
+". a . ." 
+". a . ."
+`,
+                `
+"b b . ." 
+". . a ." 
+". . a ."
+`,
+            ];
+
+            ReactDOM.render(<EmojiGrid />, document.getElementById("root"));
+        </script>
+    </body>
+</html>
