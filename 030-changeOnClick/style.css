@@ -46,6 +46,7 @@ h1 {
     display: grid;
     place-items: center;
     color: orange;
+    user-select: none;
 }
 
 .verticalBlock {
@@ -56,6 +57,7 @@ h1 {
     place-items: center;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
+    user-select: none;
 }
 
 /* Want a smaller grid?  Change the font-size of .cell and h1, or change the font-size at the top level (html) responsive to window dimensions. */
