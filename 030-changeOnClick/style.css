@@ -1,69 +1,61 @@
-/* See also https://stackblitz.com/edit/css-grid-layout-exercise-solution-react */
 body {
     margin: 0 auto;
     max-width: 1000px;
     height: 100vh;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    /*     not the main grid - just used to center our main gri */
+    place-items: center;
 }
 
 .mainGrid {
+    width: calc(max(500px, 60%));
+
     display: grid;
-    /*     check out the javascript for how we reassign this */
     grid-template-areas:
         "a . . ."
         "a . b b"
         ". . . .";
+    gap: 8px;
     /* ensure consistent width, independent of differing content */
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: 8px;
 
     border: 10px solid white;
-    border-radius: 10px;
     box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
-    width: calc(max(500px, 60%));
-    user-select: none; /* clickable without accidental selection */
-    /* only if no border */
-    /*     overflow: hidden;  */
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .cell {
     font-size: 5rem;
     background-color: skyblue;
+    display: grid;
+    place-items: center;
     aspect-ratio: 1;
-
-    /* center the cell content */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    user-select: none;
 }
 
 h1 {
     text-transform: uppercase;
+    font-size: 2rem;
 }
 
 .featureBlock {
     grid-area: b;
+    display: grid;
+    place-items: center;
     color: orange;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .verticalBlock {
     grid-area: a;
     color: white;
     background: orange;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    display: grid;
+    place-items: center;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
 }
+
+/* Want a smaller grid?  Change the font-size of .cell and h1, or change the font-size at the top level (html) responsive to window dimensions. */
