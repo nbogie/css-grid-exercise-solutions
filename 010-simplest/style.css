@@ -1,43 +1,51 @@
 body {
     margin: 0 auto;
-    max-width: 1000px;
+    height: 100vh;
+    /* This grid is used only to centre 
+    the contents of the page on both axes */
+    display: grid;
+    place-items: center;
 }
 
 .mainGrid {
-    margin: 100px auto;
     display: grid;
     grid-template-areas:
         "a . . ."
         "a . b b"
         ". . . .";
-    /* ensure consistent width, independent of differing content */
+    gap: 5px;
+    /* ensure consistent width, even if child cells have very different ideal dimensions */
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: 5px;
-    width: 75vw;
 }
 
 .cell {
-    font-size: 5rem;
-    display: flex;
-    background: gainsboro;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     aspect-ratio: 1;
-}
+    font-size: 5rem;
+    background: gainsboro;
 
-.featureBlock {
-    grid-area: b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* Centre the contents on both axes */
+    display: grid;
+    place-items: center;
 }
 
 .verticalBlock {
     grid-area: a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: orange;
+
+    /* Centre the contents on both axes */
+    display: grid;
+    place-items: center;
 }
+
+.featureBlock {
+    grid-area: b;
+    /* Centre the contents on both axes */
+    display: grid;
+    place-items: center;
+}
+h1 {
+    font-size: 1.8rem;
+}
+
+/* Want a smaller grid?  Change the font-size of .cell and h1, or change the font-size at the top level (html) responsive to window dimensions. */
