@@ -1,68 +1,64 @@
 body {
-  margin: 0 auto;
-  max-width: 1000px;
-  height: 100vh;
+    margin: 0 auto;
+    max-width: 1000px;
+    height: 100vh;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: grid;
+    /*     not the main grid - just used to center our main gri */
+    place-items: center;
 }
 
 .mainGrid {
-  display: grid;
-  /* React will set this on render. */
-  /* grid-template-areas:
-      "a . . ."
-      "a . b b"
-      ". . . ."; */
-  /* ensure consistent width, independent of differing content */
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 8px;
+    display: grid;
+    /* React will set this on render. */
+    /* grid-template-areas:
+    "a . . ."
+    "a . b b"
+    ". . . ."; */
+    /* ensure consistent width, independent of differing content */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 8px;
 
-  border: 10px solid white;
-  border-radius: 10px;
-  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
-  width: calc(max(500px, 60%));
-  user-select: none; /* clickable without accidental selection */
-  /* only if no border */
-  /*     overflow: hidden;  */
+    border: 10px solid white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+    width: calc(max(500px, 60%));
+    user-select: none; /* clickable without accidental selection */
+    overflow: hidden;
 }
 
 .cell {
-  font-size: 5rem;
-  background-color: skyblue;
-  aspect-ratio: 1;
-
-  /* center the cell content */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    font-size: 5rem;
+    background-color: skyblue;
+    aspect-ratio: 1;
+    user-select: none;
+    display: grid;
+    place-items: center;
 }
 
 h1 {
-  text-transform: uppercase;
+    text-transform: uppercase;
+    font-size: 2rem;
 }
 
 .featureBlock {
-  grid-area: b;
-  color: orange;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    grid-area: b;
+    color: orange;
+    user-select: none;
+    display: grid;
+    place-items: center;
 }
 
 .verticalBlock {
-  grid-area: a;
-  color: white;
-  background: orange;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+    grid-area: a;
+    color: white;
+    background: orange;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    user-select: none;
+    display: grid;
+    place-items: center;
 }
+
+/* Want a smaller grid?  Change the font-size of .cell and h1, or change the font-size at the top level (html) responsive to window dimensions. */
