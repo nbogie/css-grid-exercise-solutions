@@ -1,0 +1,66 @@
+body {
+    margin: 0 auto;
+    max-width: 1000px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainGrid {
+    margin: 100px auto;
+    display: grid;
+    grid-template-areas:
+        "a . . ."
+        "a . b b"
+        ". . . .";
+    gap: 8px;
+    border: 10px solid white;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    /* ensure consistent width, independent of differing content */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 75vw;
+    /*     place-items: stretch; */
+}
+
+.cell {
+    font-size: 5rem;
+    background-color: skyblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+.featureBlock {
+    grid-area: b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: orange;
+}
+
+.verticalBlock {
+    grid-area: a;
+    color: white;
+    background: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+span {
+    font-size: 1rem;
+}
