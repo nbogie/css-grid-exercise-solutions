@@ -1,0 +1,43 @@
+body {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.mainGrid {
+    margin: 100px auto;
+    display: grid;
+    grid-template-areas:
+        "a . . ."
+        "a . b b"
+        ". . . .";
+    /* ensure consistent width, independent of differing content */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px;
+    width: 75vw;
+}
+
+.cell {
+    font-size: 5rem;
+    display: flex;
+    background: gainsboro;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+}
+
+.featureBlock {
+    grid-area: b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verticalBlock {
+    grid-area: a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: orange;
+}
